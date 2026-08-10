@@ -13,7 +13,6 @@ type FormState = {
   phone: string;
   destination: string;
   departure: string;
-  返?: never;
   ret: string;
 };
 
@@ -60,7 +59,7 @@ const Booking = () => {
     event.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
-      toast.error(result.error.issues[0].message);
+      toast.error(result.error.issues[0]?.message ?? t("Formulaire invalide.", "Invalid form."));
       return;
     }
     const data = result.data;
