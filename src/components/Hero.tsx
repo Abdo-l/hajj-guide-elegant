@@ -58,12 +58,12 @@ const Hero = () => {
             )}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="mb-12 flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" variant="spiritual" className="text-lg px-8 py-6" asChild>
-              <a href="#omras">
+              <Link to="/omras">
                 {t("Découvrir nos forfaits", "Discover our packages")}
                 <ArrowRight className="ml-2" size={20} />
-              </a>
+              </Link>
             </Button>
             <Button
               size="lg"
@@ -71,11 +71,17 @@ const Hero = () => {
               className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-deep-brown"
               asChild
             >
-              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">
-                {t("Contactez-nous", "Contact us")}
-              </a>
+              <Link to="/contact">{t("Contactez-nous", "Contact us")}</Link>
             </Button>
           </div>
+
+          <p className="mb-8 text-base font-semibold text-gold-light">
+            {t(
+              "Facilités de paiement disponibles — dépôt puis versements.",
+              "Payment plans available — deposit then installments.",
+            )}
+          </p>
+
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {packages.map((pack) => (
