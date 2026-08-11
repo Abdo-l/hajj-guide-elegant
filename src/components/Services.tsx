@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plane, FileText, Bus, Hotel, Users, Shield, Ticket, Camera } from "lucide-react";
+import { Plane, FileText, Bus, Hotel, Users, Shield, Ticket, Camera, ClipboardCheck, Palmtree } from "lucide-react";
 import mosqueImage from "@/assets/mosque-services.jpg";
 import { useLang } from "@/lib/i18n";
 
@@ -21,6 +21,22 @@ const Services = () => {
       description: t(
         "Découvrez nos offres Omra sur mesure avec différents niveaux de confort pour votre petit pèlerinage.",
         "Discover our tailor-made Umrah offers with different comfort levels for your lesser pilgrimage.",
+      ),
+    },
+    {
+      icon: <ClipboardCheck className="text-gold" size={32} />,
+      title: t("Assistance Nusuk", "Nusuk assistance"),
+      description: t(
+        "Création de votre compte Nusuk Hajj, vérification des documents et suivi complet de votre demande sur la plateforme officielle.",
+        "Creation of your Nusuk Hajj account, document review and full follow-up of your application on the official platform.",
+      ),
+    },
+    {
+      icon: <Palmtree className="text-gold" size={32} />,
+      title: t("Voyages Sud tout inclus", "All-inclusive South trips"),
+      description: t(
+        "Forfaits soleil tout inclus au départ de Montréal : Punta Cana, Cancún, Cuba et Jamaïque, avec facilités de paiement.",
+        "All-inclusive sun packages from Montreal: Punta Cana, Cancún, Cuba and Jamaica, with payment plans available.",
       ),
     },
     {

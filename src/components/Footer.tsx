@@ -1,6 +1,15 @@
+import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Facebook, Instagram, MessageCircle } from "lucide-react";
+import Certifications from "@/components/Certifications";
+import { navLinks } from "@/components/Header";
 import { useLang } from "@/lib/i18n";
 import { site } from "@/lib/site";
+
+const TikTokIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.1v12.4a2.59 2.59 0 1 1-1.85-2.48V9.75a5.7 5.7 0 1 0 4.95 5.65V8.99a7.34 7.34 0 0 0 4.3 1.38V7.27a4.25 4.25 0 0 1-3.24-1.45z" />
+  </svg>
+);
 
 const Footer = () => {
   const { t } = useLang();
@@ -8,74 +17,55 @@ const Footer = () => {
   const services = [
     t("Forfaits Hajj 2027", "Hajj 2027 packages"),
     t("Forfaits Omra 2026-2027", "Umrah packages 2026-2027"),
+    t("Assistance Nusuk", "Nusuk assistance"),
     t("Assistance visa", "Visa assistance"),
     t("Billets d'avion", "Flight tickets"),
+    t("Voyages Sud tout inclus", "All-inclusive South trips"),
     t("Assurance voyage", "Travel insurance"),
-    t("Accompagnement spirituel", "Spiritual guidance"),
   ];
 
-  const links = [
-    { href: "#accueil", label: t("Accueil", "Home") },
-    { href: "#services", label: t("Services", "Services") },
-    { href: "#omras", label: t("Omras", "Umrah") },
-    { href: "#hajj", label: t("Hajj 2027", "Hajj 2027") },
-    { href: "#reservations", label: t("Billetterie", "Tickets") },
-    { href: "#souvenirs", label: t("Souvenirs", "Memories") },
-    { href: "#contact", label: t("Contact", "Contact") },
+  const socials = [
+    { href: site.social.facebook, label: "Facebook", icon: <Facebook size={20} /> },
+    { href: site.social.instagram, label: "Instagram", icon: <Instagram size={20} /> },
+    { href: site.social.tiktok, label: "TikTok", icon: <TikTokIcon /> },
+    { href: site.whatsappHref, label: "WhatsApp", icon: <MessageCircle size={20} /> },
   ];
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 py-14">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-                <span className="text-deep-brown font-bold">🕌</span>
-              </div>
-              <h3 className="text-2xl font-bold">{site.name}</h3>
-            </div>
-            <p className="text-primary-foreground/80 leading-relaxed mb-6">
+            <h3 className="mb-4 text-2xl font-bold">{site.name}</h3>
+            <p className="mb-4 leading-relaxed text-primary-foreground/80">
               {t(
                 "Votre partenaire de confiance pour vos voyages spirituels vers les lieux saints de l'Islam, au service de la communauté musulmane du Québec.",
                 "Your trusted partner for spiritual journeys to the holy sites of Islam, serving the Muslim community of Quebec.",
               )}
             </p>
-            <div className="flex gap-4">
-              <a
-                href={site.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-deep-brown transition-colors"
-              >
-                <MessageCircle size={20} />
-              </a>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-deep-brown transition-colors"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-deep-brown transition-colors"
-              >
-                <Instagram size={20} />
-              </a>
+            <p className="mb-6 text-sm font-semibold text-gold">
+              {t("Facilités de paiement disponibles.", "Payment plans available.")}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-gold hover:text-deep-brown"
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">{t("Nos Services", "Our Services")}</h4>
+            <h4 className="mb-6 text-lg font-semibold">{t("Nos Services", "Our Services")}</h4>
             <ul className="space-y-3 text-primary-foreground/80">
               {services.map((service) => (
                 <li key={service}>{service}</li>
@@ -85,13 +75,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">{t("Liens rapides", "Quick links")}</h4>
+            <h4 className="mb-6 text-lg font-semibold">{t("Liens rapides", "Quick links")}</h4>
             <ul className="space-y-3 text-primary-foreground/80">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} className="hover:text-gold transition-colors">
+              {navLinks(t).map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="transition-colors hover:text-gold">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -99,23 +89,26 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">{t("Contact", "Contact")}</h4>
+            <h4 className="mb-6 text-lg font-semibold">{t("Contact", "Contact")}</h4>
             <div className="space-y-4 text-primary-foreground/80">
-              <a href={site.phoneHref} className="flex items-center gap-3 hover:text-gold transition-colors">
-                <Phone size={18} className="text-gold" />
+              <a href={site.phoneHref} className="flex items-center gap-3 transition-colors hover:text-gold">
+                <Phone size={18} className="shrink-0 text-gold" />
                 <span>{site.phone}</span>
               </a>
-              <a href={`mailto:${site.email}`} className="flex items-center gap-3 hover:text-gold transition-colors">
-                <Mail size={18} className="text-gold" />
-                <span>{site.email}</span>
+              <a
+                href={`mailto:${site.email}`}
+                className="flex min-w-0 items-center gap-3 transition-colors hover:text-gold"
+              >
+                <Mail size={18} className="shrink-0 text-gold" />
+                <span className="truncate">{site.email}</span>
               </a>
               <a
                 href={site.addressMapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 hover:text-gold transition-colors"
+                className="flex items-start gap-3 transition-colors hover:text-gold"
               >
-                <MapPin size={18} className="text-gold mt-1" />
+                <MapPin size={18} className="mt-1 shrink-0 text-gold" />
                 <div>
                   <p>{site.addressLine1}</p>
                   <p>{site.addressLine2}</p>
@@ -125,7 +118,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-primary-foreground/60">
+        <Certifications variant="dark" className="mt-12 justify-center lg:justify-start" />
+
+        <div className="mt-10 border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60">
           <p>
             &copy; {new Date().getFullYear()} {site.name}.{" "}
             {t("Tous droits réservés. Agence agréée et certifiée.", "All rights reserved. Licensed and certified agency.")}

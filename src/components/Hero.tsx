@@ -1,8 +1,8 @@
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 import heroImage from "@/assets/hero-kaaba.jpg";
 import { useLang } from "@/lib/i18n";
-import { site } from "@/lib/site";
 
 const Hero = () => {
   const { t } = useLang();
@@ -53,17 +53,17 @@ const Hero = () => {
 
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
             {t(
-              "Niyyah Voyage organise votre Omra ou Hajj de A à Z avec accompagnement complet et services personnalisés.",
-              "Niyyah Voyage organizes your Umrah or Hajj from A to Z with complete support and personalized services.",
+              "Niyyah Voyages organise votre Omra ou Hajj de A à Z avec accompagnement complet et services personnalisés.",
+              "Niyyah Voyages organizes your Umrah or Hajj from A to Z with complete support and personalized services.",
             )}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="mb-12 flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" variant="spiritual" className="text-lg px-8 py-6" asChild>
-              <a href="#omras">
+              <Link to="/omras">
                 {t("Découvrir nos forfaits", "Discover our packages")}
                 <ArrowRight className="ml-2" size={20} />
-              </a>
+              </Link>
             </Button>
             <Button
               size="lg"
@@ -71,11 +71,17 @@ const Hero = () => {
               className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-deep-brown"
               asChild
             >
-              <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">
-                {t("Contactez-nous", "Contact us")}
-              </a>
+              <Link to="/contact">{t("Contactez-nous", "Contact us")}</Link>
             </Button>
           </div>
+
+          <p className="mb-8 text-base font-semibold text-gold-light">
+            {t(
+              "Facilités de paiement disponibles — dépôt puis versements.",
+              "Payment plans available — deposit then installments.",
+            )}
+          </p>
+
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {packages.map((pack) => (

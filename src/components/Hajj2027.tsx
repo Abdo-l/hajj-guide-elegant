@@ -104,8 +104,8 @@ const Hajj2027 = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t(
-              "Deux phases : votre pré-inscription auprès de Niyyah Voyage, puis votre dossier sur la plateforme officielle Nusuk Hajj.",
-              "Two phases: your pre-registration with Niyyah Voyage, then your application on the official Nusuk Hajj platform.",
+              "Deux phases : votre pré-inscription auprès de Niyyah Voyages, puis votre dossier sur la plateforme officielle Nusuk Hajj.",
+              "Two phases: your pre-registration with Niyyah Voyages, then your application on the official Nusuk Hajj platform.",
             )}
           </p>
         </div>
@@ -234,7 +234,7 @@ const Hajj2027 = () => {
             <Card className="border-0 shadow-card">
               <CardContent className="p-6">
                 <h4 className="font-semibold text-primary mb-4">
-                  {t("Pourquoi Niyyah Voyage", "Why Niyyah Voyage")}
+                  {t("Pourquoi Niyyah Voyages", "Why Niyyah Voyages")}
                 </h4>
                 <ul className="space-y-3">
                   {advantages.map((item) => (

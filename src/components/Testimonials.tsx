@@ -18,8 +18,8 @@ const Testimonials = () => {
     {
       name: "Ahmed K.",
       text: t(
-        "Des guides professionnels et attentifs. Une expérience spirituelle inoubliable grâce à l'accompagnement exceptionnel de Niyyah Voyage.",
-        "Professional and attentive guides. An unforgettable spiritual experience thanks to Niyyah Voyage's exceptional support.",
+        "Des guides professionnels et attentifs. Une expérience spirituelle inoubliable grâce à l'accompagnement exceptionnel de Niyyah Voyages.",
+        "Professional and attentive guides. An unforgettable spiritual experience thanks to Niyyah Voyages's exceptional support.",
       ),
       rating: 5,
       location: "Laval",
