@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as BilletterieRouteImport } from './routes/billetterie'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as Hajj2027RouteImport } from './routes/hajj-2027'
+import { Route as OmrasRouteImport } from './routes/omras'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SouvenirsRouteImport } from './routes/souvenirs'
+import { Route as SudRouteImport } from './routes/sud'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BilletterieRoute = BilletterieRouteImport.update({
+  id: '/billetterie',
+  path: '/billetterie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Hajj2027Route = Hajj2027RouteImport.update({
+  id: '/hajj-2027',
+  path: '/hajj-2027',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OmrasRoute = OmrasRouteImport.update({
+  id: '/omras',
+  path: '/omras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SouvenirsRoute = SouvenirsRouteImport.update({
+  id: '/souvenirs',
+  path: '/souvenirs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SudRoute = SudRouteImport.update({
+  id: '/sud',
+  path: '/sud',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/billetterie': typeof BilletterieRoute
+  '/contact': typeof ContactRoute
+  '/hajj-2027': typeof Hajj2027Route
+  '/omras': typeof OmrasRoute
+  '/services': typeof ServicesRoute
+  '/souvenirs': typeof SouvenirsRoute
+  '/sud': typeof SudRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/billetterie': typeof BilletterieRoute
+  '/contact': typeof ContactRoute
+  '/hajj-2027': typeof Hajj2027Route
+  '/omras': typeof OmrasRoute
+  '/services': typeof ServicesRoute
+  '/souvenirs': typeof SouvenirsRoute
+  '/sud': typeof SudRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/billetterie': typeof BilletterieRoute
+  '/contact': typeof ContactRoute
+  '/hajj-2027': typeof Hajj2027Route
+  '/omras': typeof OmrasRoute
+  '/services': typeof ServicesRoute
+  '/souvenirs': typeof SouvenirsRoute
+  '/sud': typeof SudRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/billetterie'
+    | '/contact'
+    | '/hajj-2027'
+    | '/omras'
+    | '/services'
+    | '/souvenirs'
+    | '/sud'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/billetterie'
+    | '/contact'
+    | '/hajj-2027'
+    | '/omras'
+    | '/services'
+    | '/souvenirs'
+    | '/sud'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/billetterie'
+    | '/contact'
+    | '/hajj-2027'
+    | '/omras'
+    | '/services'
+    | '/souvenirs'
+    | '/sud'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  BilletterieRoute: typeof BilletterieRoute
+  ContactRoute: typeof ContactRoute
+  Hajj2027Route: typeof Hajj2027Route
+  OmrasRoute: typeof OmrasRoute
+  ServicesRoute: typeof ServicesRoute
+  SouvenirsRoute: typeof SouvenirsRoute
+  SudRoute: typeof SudRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/billetterie': {
+      id: '/billetterie'
+      path: '/billetterie'
+      fullPath: '/billetterie'
+      preLoaderRoute: typeof BilletterieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hajj-2027': {
+      id: '/hajj-2027'
+      path: '/hajj-2027'
+      fullPath: '/hajj-2027'
+      preLoaderRoute: typeof Hajj2027RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/omras': {
+      id: '/omras'
+      path: '/omras'
+      fullPath: '/omras'
+      preLoaderRoute: typeof OmrasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/souvenirs': {
+      id: '/souvenirs'
+      path: '/souvenirs'
+      fullPath: '/souvenirs'
+      preLoaderRoute: typeof SouvenirsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sud': {
+      id: '/sud'
+      path: '/sud'
+      fullPath: '/sud'
+      preLoaderRoute: typeof SudRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  BilletterieRoute: BilletterieRoute,
+  ContactRoute: ContactRoute,
+  Hajj2027Route: Hajj2027Route,
+  OmrasRoute: OmrasRoute,
+  ServicesRoute: ServicesRoute,
+  SouvenirsRoute: SouvenirsRoute,
+  SudRoute: SudRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
