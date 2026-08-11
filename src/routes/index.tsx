@@ -1,36 +1,27 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Omras from "@/components/Omras";
-import Hajj2027 from "@/components/Hajj2027";
-import Booking from "@/components/Booking";
-import Souvenirs from "@/components/Souvenirs";
-import About from "@/components/About";
+import Certifications from "@/components/Certifications";
+import PaymentNote from "@/components/PaymentNote";
 import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import { LanguageProvider } from "@/lib/i18n";
+import { Card, CardContent } from "@/components/ui/card";
+import { useLang } from "@/lib/i18n";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Niyyah Voyages — Hajj 2027 et Omra depuis Montréal" },
+      { title: "Niyyah Voyages — Hajj 2027, Omra et Sud depuis Montréal" },
       {
         name: "description",
         content:
-          "Niyyah Voyages organise votre Hajj 2027 et vos Omras : forfaits tout inclus, inscription Nusuk, billets d'avion, assurance et accompagnement spirituel depuis Montréal.",
+          "Niyyah Voyages organise votre Hajj 2027, vos Omras et vos voyages Sud tout inclus : assistance Nusuk, billets d'avion, assurance et facilités de paiement depuis Montréal.",
       },
-      {
-        property: "og:title",
-        content: "Niyyah Voyages — Votre voyage spirituel vers La Mecque",
-      },
+      { property: "og:title", content: "Niyyah Voyages — Votre voyage spirituel vers La Mecque" },
       {
         property: "og:description",
         content:
-          "Forfaits Hajj 2027 et Omra, inscription Nusuk, billetterie et assurance voyage. Agence bilingue à Montréal.",
+          "Forfaits Hajj 2027 et Omra, assistance Nusuk, billetterie, assurance et voyages Sud tout inclus. Agence bilingue à Montréal.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -40,22 +31,42 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { t } = useLang();
+
+  const sections = [
+    { to: "/omras", title: t("Forfaits Omra", "Umrah packages"), text: t("Programmes 2026-2027 avec dates et tarifs.", "2026-2027 programs with dates and prices.") },
+    { to: "/hajj-2027", title: t("Hajj 2027", "Hajj 2027"), text: t("Pré-inscription et accompagnement Nusuk.", "Pre-registration and Nusuk support.") },
+    { to: "/sud", title: t("Sud tout inclus", "All-inclusive South"), text: t("Soleil et plage au départ de Montréal.", "Sun and beach from Montreal.") },
+    { to: "/services", title: t("Nos services", "Our services"), text: t("Visa, Nusuk, transport, assurance et plus.", "Visa, Nusuk, transport, insurance and more.") },
+    { to: "/billetterie", title: t("Billetterie & assurance", "Tickets & insurance"), text: t("Réservez vos vols et votre couverture.", "Book your flights and coverage.") },
+    { to: "/souvenirs", title: t("Souvenirs", "Memories"), text: t("Photos et vidéos de nos groupes.", "Photos and videos of our groups.") },
+  ];
+
   return (
-    <LanguageProvider>
-      <div className="min-h-screen">
-        <Header />
-        <Hero />
-        <Services />
-        <Omras />
-        <Hajj2027 />
-        <Booking />
-        <Souvenirs />
-        <About />
-        <Testimonials />
-        <Contact />
-        <Footer />
-        <WhatsAppButton />
-      </div>
-    </LanguageProvider>
+    <>
+      <Hero />
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <Certifications className="mb-12" />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {sections.map((s) => (
+              <Link key={s.to} to={s.to} className="group">
+                <Card className="h-full border-0 shadow-soft transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-card">
+                  <CardContent className="p-6">
+                    <h2 className="mb-2 flex items-center gap-2 text-xl font-semibold text-primary">
+                      {s.title}
+                      <ArrowRight size={18} className="text-gold transition-transform group-hover:translate-x-1" />
+                    </h2>
+                    <p className="text-muted-foreground">{s.text}</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+          <PaymentNote className="mx-auto mt-12 max-w-3xl" />
+        </div>
+      </section>
+      <Testimonials />
+    </>
   );
 }

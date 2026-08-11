@@ -1,8 +1,8 @@
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 import heroImage from "@/assets/hero-kaaba.jpg";
 import { useLang } from "@/lib/i18n";
-import { site } from "@/lib/site";
 
 const Hero = () => {
   const { t } = useLang();
