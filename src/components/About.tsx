@@ -37,8 +37,8 @@ const About = () => {
             </h2>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               {t(
-                "Depuis plusieurs années, Niyyah Voyage accompagne les musulmans du Canada dans leur voyage spirituel vers les lieux saints de l'Islam. Expertise Hajj et Omra, service personnalisé et attention aux détails font notre réputation.",
-                "For several years, Niyyah Voyage has been guiding Canadian Muslims on their spiritual journey to the holy sites of Islam. Hajj and Umrah expertise, personalized service and attention to detail built our reputation.",
+                "Depuis plusieurs années, Niyyah Voyages accompagne les musulmans du Canada dans leur voyage spirituel vers les lieux saints de l'Islam. Expertise Hajj et Omra, service personnalisé et attention aux détails font notre réputation.",
+                "For several years, Niyyah Voyages has been guiding Canadian Muslims on their spiritual journey to the holy sites of Islam. Hajj and Umrah expertise, personalized service and attention to detail built our reputation.",
               )}
             </p>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">

@@ -17,15 +17,15 @@ import { LanguageProvider } from "@/lib/i18n";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Niyyah Voyage — Hajj 2027 et Omra depuis Montréal" },
+      { title: "Niyyah Voyages — Hajj 2027 et Omra depuis Montréal" },
       {
         name: "description",
         content:
-          "Niyyah Voyage organise votre Hajj 2027 et vos Omras : forfaits tout inclus, inscription Nusuk, billets d'avion, assurance et accompagnement spirituel depuis Montréal.",
+          "Niyyah Voyages organise votre Hajj 2027 et vos Omras : forfaits tout inclus, inscription Nusuk, billets d'avion, assurance et accompagnement spirituel depuis Montréal.",
       },
       {
         property: "og:title",
-        content: "Niyyah Voyage — Votre voyage spirituel vers La Mecque",
+        content: "Niyyah Voyages — Votre voyage spirituel vers La Mecque",
       },
       {
         property: "og:description",

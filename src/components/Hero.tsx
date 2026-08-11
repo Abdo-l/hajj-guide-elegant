@@ -53,8 +53,8 @@ const Hero = () => {
 
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
             {t(
-              "Niyyah Voyage organise votre Omra ou Hajj de A à Z avec accompagnement complet et services personnalisés.",
-              "Niyyah Voyage organizes your Umrah or Hajj from A to Z with complete support and personalized services.",
+              "Niyyah Voyages organise votre Omra ou Hajj de A à Z avec accompagnement complet et services personnalisés.",
+              "Niyyah Voyages organizes your Umrah or Hajj from A to Z with complete support and personalized services.",
             )}
           </p>
 
