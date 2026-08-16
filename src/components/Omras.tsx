@@ -34,6 +34,21 @@ const omras: Omra[] = [
     status: "full",
   },
   {
+    title: { fr: "Octobre 2026 — Combinée Istanbul", en: "October 2026 — Istanbul combo" },
+    dates: { fr: "Du 7 au 18 octobre 2026", en: "Oct 7 – 18, 2026" },
+    price: "3 200 CAD",
+    status: "available",
+    hotels: {
+      fr: "Hôtels Al Jumeirah & Dar Al Haram 5 étoiles",
+      en: "Al Jumeirah & Dar Al Haram 5-star hotels",
+    },
+    highlight: {
+      fr: "5 nuits à La Mecque, 3 nuits à Médine, 1 nuit à Istanbul (1 vendredi à Médine, 1 vendredi à La Mecque) — vol Turkish Airlines, visa inclus",
+      en: "5 nights in Makkah, 3 in Medina, 1 in Istanbul (one Friday in each holy city) — Turkish Airlines flight, visa included",
+    },
+  },
+
+  {
     title: { fr: "Octobre Directe 2", en: "October Direct 2" },
     dates: { fr: "Du 11 au 21 octobre 2026", en: "Oct 11 – 21, 2026" },
     price: "3 190 $",
