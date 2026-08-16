@@ -108,15 +108,28 @@ const Booking = () => {
     const subject =
       tab === "flight"
         ? t("Demande de billet d'avion", "Flight ticket request")
-        : t("Demande d'assurance voyage", "Travel insurance request");
-    const message = [
-      `${subject} — ${site.name}`,
-      `${t("Nom", "Name")}: ${data.name}`,
-      `${t("Téléphone", "Phone")}: ${data.phone}`,
-      `${t("Destination", "Destination")}: ${data.destination}`,
-      `${t("Départ", "Departure")}: ${data.departure}`,
-      `${t("Retour", "Return")}: ${data.ret || "-"}`,
-    ].join("\n");
+        : t("Demande de devis d'assurance voyage", "Travel insurance quote request");
+
+    const messageLines = [`${subject} — ${site.name}`, `${t("Nom", "Name")}: ${data.name}`, `${t("Téléphone", "Phone")}: ${data.phone}`];
+
+    if (tab === "flight") {
+      messageLines.push(
+        `${t("Destination", "Destination")}: ${data.destination || "-"}`,
+        `${t("Départ", "Departure")}: ${data.departure}`,
+        `${t("Retour", "Return")}: ${data.ret || "-"}`,
+      );
+    } else {
+      messageLines.push(
+        `${t("Destination (pays)", "Destination (country)")}: ${data.destinationCountry || "-"}`,
+        `${t("Destination (ville)", "Destination (city)")}: ${data.destinationCity || "-"}`,
+        `${t("Origine (pays)", "Origin (country)")}: ${data.originCountry || "-"}`,
+        `${t("Origine (ville)", "Origin (city)")}: ${data.originCity || "-"}`,
+        `${t("Date de naissance", "Date of birth")}: ${data.birthDate || "-"}`,
+        `${t("Date de départ", "Departure date")}: ${data.departure}`,
+        `${t("Date de retour", "Return date")}: ${data.ret || "-"}`,
+      );
+    }
+    const message = messageLines.join("\n");
 
     window.open(`${site.whatsappHref}?text=${encodeURIComponent(message)}`, "_blank");
     toast.success(
