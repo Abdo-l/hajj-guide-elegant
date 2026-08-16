@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, BedDouble, Check, X } from "lucide-react";
+import { Calendar, MapPin, BedDouble, Check, X, Star } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
