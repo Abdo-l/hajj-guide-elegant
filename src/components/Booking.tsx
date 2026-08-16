@@ -12,6 +12,12 @@ type FormState = {
   name: string;
   phone: string;
   destination: string;
+  destinationCountry: string;
+  destinationCity: string;
+  origin: string;
+  originCountry: string;
+  originCity: string;
+  birthDate: string;
   departure: string;
   ret: string;
 };
@@ -20,6 +26,12 @@ const emptyForm: FormState = {
   name: "",
   phone: "",
   destination: "",
+  destinationCountry: "",
+  destinationCity: "",
+  origin: "",
+  originCountry: "",
+  originCity: "",
+  birthDate: "",
   departure: "",
   ret: "",
 };
