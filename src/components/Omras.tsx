@@ -9,7 +9,10 @@ type Omra = {
   dates: { fr: string; en: string };
   price: string;
   status: "available" | "full";
+  hotels?: { fr: string; en: string };
+  highlight?: { fr: string; en: string };
 };
+
 
 const omras: Omra[] = [
   {
