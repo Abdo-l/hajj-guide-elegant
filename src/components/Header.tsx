@@ -14,6 +14,7 @@ export const navLinks = (t: (fr: string, en: string) => string) => [
   { to: "/hajj-2027", label: t("Hajj 2027", "Hajj 2027") },
   { to: "/sud", label: t("Sud tout inclus", "All-inclusive South") },
   { to: "/billetterie", label: t("Billetterie", "Tickets") },
+  { to: "/location-voiture", label: t("Location voiture", "Car rental") },
   { to: "/souvenirs", label: t("Souvenirs", "Memories") },
   { to: "/a-propos", label: t("À propos", "About") },
   { to: "/contact", label: t("Contact", "Contact") },
