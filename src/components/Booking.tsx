@@ -12,6 +12,12 @@ type FormState = {
   name: string;
   phone: string;
   destination: string;
+  destinationCountry: string;
+  destinationCity: string;
+  origin: string;
+  originCountry: string;
+  originCity: string;
+  birthDate: string;
   departure: string;
   ret: string;
 };
@@ -20,6 +26,12 @@ const emptyForm: FormState = {
   name: "",
   phone: "",
   destination: "",
+  destinationCountry: "",
+  destinationCity: "",
+  origin: "",
+  originCountry: "",
+  originCity: "",
+  birthDate: "",
   departure: "",
   ret: "",
 };
@@ -43,13 +55,43 @@ const Booking = () => {
     destination: z
       .string()
       .trim()
-      .min(2, t("Veuillez indiquer une destination.", "Please enter a destination."))
-      .max(100),
+      .max(100)
+      .optional(),
+    destinationCountry: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    destinationCity: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    origin: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    originCountry: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    originCity: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    birthDate: z
+      .string()
+      .trim()
+      .max(30)
+      .optional(),
     departure: z
       .string()
       .trim()
       .min(1, t("Veuillez indiquer la date de départ.", "Please enter the departure date.")),
-    ret: z.string().trim().max(30),
+    ret: z.string().trim().max(30).optional(),
   });
 
   const update = (key: keyof FormState) => (value: string) =>
@@ -66,15 +108,28 @@ const Booking = () => {
     const subject =
       tab === "flight"
         ? t("Demande de billet d'avion", "Flight ticket request")
-        : t("Demande d'assurance voyage", "Travel insurance request");
-    const message = [
-      `${subject} — ${site.name}`,
-      `${t("Nom", "Name")}: ${data.name}`,
-      `${t("Téléphone", "Phone")}: ${data.phone}`,
-      `${t("Destination", "Destination")}: ${data.destination}`,
-      `${t("Départ", "Departure")}: ${data.departure}`,
-      `${t("Retour", "Return")}: ${data.ret || "-"}`,
-    ].join("\n");
+        : t("Demande de devis d'assurance voyage", "Travel insurance quote request");
+
+    const messageLines = [`${subject} — ${site.name}`, `${t("Nom", "Name")}: ${data.name}`, `${t("Téléphone", "Phone")}: ${data.phone}`];
+
+    if (tab === "flight") {
+      messageLines.push(
+        `${t("Destination", "Destination")}: ${data.destination || "-"}`,
+        `${t("Départ", "Departure")}: ${data.departure}`,
+        `${t("Retour", "Return")}: ${data.ret || "-"}`,
+      );
+    } else {
+      messageLines.push(
+        `${t("Destination (pays)", "Destination (country)")}: ${data.destinationCountry || "-"}`,
+        `${t("Destination (ville)", "Destination (city)")}: ${data.destinationCity || "-"}`,
+        `${t("Origine (pays)", "Origin (country)")}: ${data.originCountry || "-"}`,
+        `${t("Origine (ville)", "Origin (city)")}: ${data.originCity || "-"}`,
+        `${t("Date de naissance", "Date of birth")}: ${data.birthDate || "-"}`,
+        `${t("Date de départ", "Departure date")}: ${data.departure}`,
+        `${t("Date de retour", "Return date")}: ${data.ret || "-"}`,
+      );
+    }
+    const message = messageLines.join("\n");
 
     window.open(`${site.whatsappHref}?text=${encodeURIComponent(message)}`, "_blank");
     toast.success(
@@ -166,18 +221,91 @@ const Booking = () => {
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest">
-                  {t("Destination *", "Destination *")}
-                </label>
-                <Input
-                  id="b-dest"
-                  value={form.destination}
-                  maxLength={100}
-                  onChange={(e) => update("destination")(e.target.value)}
-                  placeholder={t("Ex. Djeddah, Casablanca, Istanbul", "e.g. Jeddah, Casablanca, Istanbul")}
-                />
-              </div>
+              {tab === "flight" ? (
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest">
+                    {t("Destination *", "Destination *")}
+                  </label>
+                  <Input
+                    id="b-dest"
+                    value={form.destination}
+                    maxLength={100}
+                    onChange={(e) => update("destination")(e.target.value)}
+                    placeholder={t(
+                      "Ex. Djeddah, Casablanca, Istanbul",
+                      "e.g. Jeddah, Casablanca, Istanbul",
+                    )}
+                  />
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest-country">
+                        {t("Pays de destination *", "Destination country *")}
+                      </label>
+                      <Input
+                        id="b-dest-country"
+                        value={form.destinationCountry}
+                        maxLength={100}
+                        onChange={(e) => update("destinationCountry")(e.target.value)}
+                        placeholder={t("Ex. Arabie saoudite", "e.g. Saudi Arabia")}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest-city">
+                        {t("Ville de destination *", "Destination city *")}
+                      </label>
+                      <Input
+                        id="b-dest-city"
+                        value={form.destinationCity}
+                        maxLength={100}
+                        onChange={(e) => update("destinationCity")(e.target.value)}
+                        placeholder={t("Ex. La Mecque", "e.g. Mecca")}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-origin-country">
+                        {t("Pays d'origine *", "Origin country *")}
+                      </label>
+                      <Input
+                        id="b-origin-country"
+                        value={form.originCountry}
+                        maxLength={100}
+                        onChange={(e) => update("originCountry")(e.target.value)}
+                        placeholder={t("Ex. Canada", "e.g. Canada")}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-origin-city">
+                        {t("Ville d'origine *", "Origin city *")}
+                      </label>
+                      <Input
+                        id="b-origin-city"
+                        value={form.originCity}
+                        maxLength={100}
+                        onChange={(e) => update("originCity")(e.target.value)}
+                        placeholder={t("Ex. Montréal", "e.g. Montreal")}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-birth">
+                      {t("Date de naissance *", "Date of birth *")}
+                    </label>
+                    <Input
+                      id="b-birth"
+                      type="date"
+                      value={form.birthDate}
+                      onChange={(e) => update("birthDate")(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
