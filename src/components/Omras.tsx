@@ -172,7 +172,20 @@ const Omras = () => {
                     <BedDouble size={16} className="text-gold" />
                     {t("Chambre quadruple", "Quadruple room")}
                   </li>
+                  {omra.hotels && (
+                    <li className="flex items-start gap-2">
+                      <Star size={16} className="text-gold shrink-0 mt-0.5" />
+                      {omra.hotels[lang]}
+                    </li>
+                  )}
                 </ul>
+
+                {omra.highlight && (
+                  <p className="-mt-3 mb-6 rounded-md bg-muted/60 p-3 text-xs leading-relaxed text-muted-foreground">
+                    {omra.highlight[lang]}
+                  </p>
+                )}
+
 
                 <div className="flex items-end justify-between gap-3">
                   <div>
