@@ -39,6 +39,7 @@ function Index() {
     { to: "/sud", title: t("Sud tout inclus", "All-inclusive South"), text: t("Soleil et plage au départ de Montréal.", "Sun and beach from Montreal.") },
     { to: "/services", title: t("Nos services", "Our services"), text: t("Visa, Nusuk, transport, assurance et plus.", "Visa, Nusuk, transport, insurance and more.") },
     { to: "/billetterie", title: t("Billetterie & assurance", "Tickets & insurance"), text: t("Réservez vos vols et votre couverture.", "Book your flights and coverage.") },
+    { to: "/location-voiture", title: t("Location de voiture au Maroc", "Car rental in Morocco"), text: t("Voiture livrée à l'aéroport, assurance incluse.", "Car delivered at the airport, insurance included.") },
     { to: "/souvenirs", title: t("Souvenirs", "Memories"), text: t("Photos et vidéos de nos groupes.", "Photos and videos of our groups.") },
   ];
 
