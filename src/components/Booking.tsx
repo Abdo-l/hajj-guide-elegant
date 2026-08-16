@@ -221,18 +221,91 @@ const Booking = () => {
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest">
-                  {t("Destination *", "Destination *")}
-                </label>
-                <Input
-                  id="b-dest"
-                  value={form.destination}
-                  maxLength={100}
-                  onChange={(e) => update("destination")(e.target.value)}
-                  placeholder={t("Ex. Djeddah, Casablanca, Istanbul", "e.g. Jeddah, Casablanca, Istanbul")}
-                />
-              </div>
+              {tab === "flight" ? (
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest">
+                    {t("Destination *", "Destination *")}
+                  </label>
+                  <Input
+                    id="b-dest"
+                    value={form.destination}
+                    maxLength={100}
+                    onChange={(e) => update("destination")(e.target.value)}
+                    placeholder={t(
+                      "Ex. Djeddah, Casablanca, Istanbul",
+                      "e.g. Jeddah, Casablanca, Istanbul",
+                    )}
+                  />
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest-country">
+                        {t("Pays de destination *", "Destination country *")}
+                      </label>
+                      <Input
+                        id="b-dest-country"
+                        value={form.destinationCountry}
+                        maxLength={100}
+                        onChange={(e) => update("destinationCountry")(e.target.value)}
+                        placeholder={t("Ex. Arabie saoudite", "e.g. Saudi Arabia")}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-dest-city">
+                        {t("Ville de destination *", "Destination city *")}
+                      </label>
+                      <Input
+                        id="b-dest-city"
+                        value={form.destinationCity}
+                        maxLength={100}
+                        onChange={(e) => update("destinationCity")(e.target.value)}
+                        placeholder={t("Ex. La Mecque", "e.g. Mecca")}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-origin-country">
+                        {t("Pays d'origine *", "Origin country *")}
+                      </label>
+                      <Input
+                        id="b-origin-country"
+                        value={form.originCountry}
+                        maxLength={100}
+                        onChange={(e) => update("originCountry")(e.target.value)}
+                        placeholder={t("Ex. Canada", "e.g. Canada")}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-origin-city">
+                        {t("Ville d'origine *", "Origin city *")}
+                      </label>
+                      <Input
+                        id="b-origin-city"
+                        value={form.originCity}
+                        maxLength={100}
+                        onChange={(e) => update("originCity")(e.target.value)}
+                        placeholder={t("Ex. Montréal", "e.g. Montreal")}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-foreground" htmlFor="b-birth">
+                      {t("Date de naissance *", "Date of birth *")}
+                    </label>
+                    <Input
+                      id="b-birth"
+                      type="date"
+                      value={form.birthDate}
+                      onChange={(e) => update("birthDate")(e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
