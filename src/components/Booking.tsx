@@ -55,13 +55,43 @@ const Booking = () => {
     destination: z
       .string()
       .trim()
-      .min(2, t("Veuillez indiquer une destination.", "Please enter a destination."))
-      .max(100),
+      .max(100)
+      .optional(),
+    destinationCountry: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    destinationCity: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    origin: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    originCountry: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    originCity: z
+      .string()
+      .trim()
+      .max(100)
+      .optional(),
+    birthDate: z
+      .string()
+      .trim()
+      .max(30)
+      .optional(),
     departure: z
       .string()
       .trim()
       .min(1, t("Veuillez indiquer la date de départ.", "Please enter the departure date.")),
-    ret: z.string().trim().max(30),
+    ret: z.string().trim().max(30).optional(),
   });
 
   const update = (key: keyof FormState) => (value: string) =>
