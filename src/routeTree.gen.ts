@@ -14,6 +14,7 @@ import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as BilletterieRouteImport } from './routes/billetterie'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as Hajj2027RouteImport } from './routes/hajj-2027'
+import { Route as LocationVoitureRouteImport } from './routes/location-voiture'
 import { Route as OmrasRouteImport } from './routes/omras'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SouvenirsRouteImport } from './routes/souvenirs'
@@ -44,6 +45,11 @@ const Hajj2027Route = Hajj2027RouteImport.update({
   path: '/hajj-2027',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocationVoitureRoute = LocationVoitureRouteImport.update({
+  id: '/location-voiture',
+  path: '/location-voiture',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OmrasRoute = OmrasRouteImport.update({
   id: '/omras',
   path: '/omras',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/billetterie': typeof BilletterieRoute
   '/contact': typeof ContactRoute
   '/hajj-2027': typeof Hajj2027Route
+  '/location-voiture': typeof LocationVoitureRoute
   '/omras': typeof OmrasRoute
   '/services': typeof ServicesRoute
   '/souvenirs': typeof SouvenirsRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/billetterie': typeof BilletterieRoute
   '/contact': typeof ContactRoute
   '/hajj-2027': typeof Hajj2027Route
+  '/location-voiture': typeof LocationVoitureRoute
   '/omras': typeof OmrasRoute
   '/services': typeof ServicesRoute
   '/souvenirs': typeof SouvenirsRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/billetterie': typeof BilletterieRoute
   '/contact': typeof ContactRoute
   '/hajj-2027': typeof Hajj2027Route
+  '/location-voiture': typeof LocationVoitureRoute
   '/omras': typeof OmrasRoute
   '/services': typeof ServicesRoute
   '/souvenirs': typeof SouvenirsRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/billetterie'
     | '/contact'
     | '/hajj-2027'
+    | '/location-voiture'
     | '/omras'
     | '/services'
     | '/souvenirs'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/billetterie'
     | '/contact'
     | '/hajj-2027'
+    | '/location-voiture'
     | '/omras'
     | '/services'
     | '/souvenirs'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/billetterie'
     | '/contact'
     | '/hajj-2027'
+    | '/location-voiture'
     | '/omras'
     | '/services'
     | '/souvenirs'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   BilletterieRoute: typeof BilletterieRoute
   ContactRoute: typeof ContactRoute
   Hajj2027Route: typeof Hajj2027Route
+  LocationVoitureRoute: typeof LocationVoitureRoute
   OmrasRoute: typeof OmrasRoute
   ServicesRoute: typeof ServicesRoute
   SouvenirsRoute: typeof SouvenirsRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Hajj2027RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/location-voiture': {
+      id: '/location-voiture'
+      path: '/location-voiture'
+      fullPath: '/location-voiture'
+      preLoaderRoute: typeof LocationVoitureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/omras': {
       id: '/omras'
       path: '/omras'
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   BilletterieRoute: BilletterieRoute,
   ContactRoute: ContactRoute,
   Hajj2027Route: Hajj2027Route,
+  LocationVoitureRoute: LocationVoitureRoute,
   OmrasRoute: OmrasRoute,
   ServicesRoute: ServicesRoute,
   SouvenirsRoute: SouvenirsRoute,
@@ -229,3 +250,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

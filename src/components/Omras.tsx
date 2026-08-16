@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, BedDouble, Check, X } from "lucide-react";
+import { Calendar, MapPin, BedDouble, Check, X, Star } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
@@ -9,7 +9,10 @@ type Omra = {
   dates: { fr: string; en: string };
   price: string;
   status: "available" | "full";
+  hotels?: { fr: string; en: string };
+  highlight?: { fr: string; en: string };
 };
+
 
 const omras: Omra[] = [
   {
@@ -30,6 +33,21 @@ const omras: Omra[] = [
     price: "2 980 $",
     status: "full",
   },
+  {
+    title: { fr: "Octobre 2026 — Combinée Istanbul", en: "October 2026 — Istanbul combo" },
+    dates: { fr: "Du 7 au 18 octobre 2026", en: "Oct 7 – 18, 2026" },
+    price: "3 200 CAD",
+    status: "available",
+    hotels: {
+      fr: "Hôtels Al Jumeirah & Dar Al Haram 5 étoiles",
+      en: "Al Jumeirah & Dar Al Haram 5-star hotels",
+    },
+    highlight: {
+      fr: "5 nuits à La Mecque, 3 nuits à Médine, 1 nuit à Istanbul (1 vendredi à Médine, 1 vendredi à La Mecque) — vol Turkish Airlines, visa inclus",
+      en: "5 nights in Makkah, 3 in Medina, 1 in Istanbul (one Friday in each holy city) — Turkish Airlines flight, visa included",
+    },
+  },
+
   {
     title: { fr: "Octobre Directe 2", en: "October Direct 2" },
     dates: { fr: "Du 11 au 21 octobre 2026", en: "Oct 11 – 21, 2026" },
@@ -154,7 +172,20 @@ const Omras = () => {
                     <BedDouble size={16} className="text-gold" />
                     {t("Chambre quadruple", "Quadruple room")}
                   </li>
+                  {omra.hotels && (
+                    <li className="flex items-start gap-2">
+                      <Star size={16} className="text-gold shrink-0 mt-0.5" />
+                      {omra.hotels[lang]}
+                    </li>
+                  )}
                 </ul>
+
+                {omra.highlight && (
+                  <p className="-mt-3 mb-6 rounded-md bg-muted/60 p-3 text-xs leading-relaxed text-muted-foreground">
+                    {omra.highlight[lang]}
+                  </p>
+                )}
+
 
                 <div className="flex items-end justify-between gap-3">
                   <div>
