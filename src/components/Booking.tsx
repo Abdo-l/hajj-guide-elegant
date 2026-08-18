@@ -146,7 +146,7 @@ const Booking = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-14 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            {t("Billetterie & assurance voyage", "Flight tickets & travel insurance")}
+            {t("Billetterie & assurance voyages", "Flight tickets & travel insurance")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t(
@@ -183,7 +183,7 @@ const Booking = () => {
                 }
               >
                 <ShieldCheck size={18} />
-                {t("Assurance voyage", "Travel insurance")}
+                {t("Assurance voyages", "Travel insurance")}
               </button>
             </div>
             <CardTitle className="text-2xl text-primary text-center">
