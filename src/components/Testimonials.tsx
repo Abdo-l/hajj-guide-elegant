@@ -53,10 +53,18 @@ const Testimonials = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t(
-              "Découvrez les expériences de nos pèlerins qui nous font confiance pour leur voyage spirituel",
-              "Discover the experiences of the pilgrims who trust us with their spiritual journey",
+              "Les expériences de nos pèlerins accompagnés par Achraf, avec Voyages Maestro à Montréal",
+              "Experiences from pilgrims guided by Achraf, with Voyages Maestro in Montreal",
             )}
           </p>
+          <a
+            href="https://www.google.com/search?q=agence+voyages+maestro+avis+montreal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm font-semibold text-gold underline underline-offset-4"
+          >
+            {t("Voir tous les avis Google", "See all Google reviews")}
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
