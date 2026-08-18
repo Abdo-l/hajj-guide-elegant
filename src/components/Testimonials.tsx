@@ -7,10 +7,19 @@ const Testimonials = () => {
 
   const testimonials = [
     {
+      name: "Ali Hamouche",
+      text: t(
+        "Le service téléphonique de l'agence est tout simplement remarquable. Dès les premières minutes, on est accueilli avec courtoisie, professionnalisme et une grande écoute. Les conseillers prennent le temps de bien comprendre les besoins et répondent à chaque question avec clarté et patience. Très bon service et prix abordables !",
+        "The agency's phone service is simply remarkable. From the first minutes you are welcomed with courtesy, professionalism and real attentiveness. The advisors take the time to understand your needs and answer every question with clarity and patience. Great service and affordable prices!",
+      ),
+      rating: 5,
+      location: t("Avis Google — Voyages Maestro", "Google review — Voyages Maestro"),
+    },
+    {
       name: "Fatima B.",
       text: t(
-        "Excellent service ! Notre pèlerinage s'est déroulé sans souci grâce à une organisation parfaite. L'équipe était attentive et professionnelle.",
-        "Excellent service! Our pilgrimage went smoothly thanks to perfect organization. The team was attentive and professional.",
+        "Excellent service ! Notre pèlerinage s'est déroulé sans souci grâce à l'organisation d'Achraf. L'équipe était attentive et professionnelle du début à la fin.",
+        "Excellent service! Our pilgrimage went smoothly thanks to Achraf's organization. The team was attentive and professional from start to finish.",
       ),
       rating: 5,
       location: t("Montréal", "Montreal"),
@@ -18,8 +27,8 @@ const Testimonials = () => {
     {
       name: "Ahmed K.",
       text: t(
-        "Des guides professionnels et attentifs. Une expérience spirituelle inoubliable grâce à l'accompagnement exceptionnel de Niyyah Voyages.",
-        "Professional and attentive guides. An unforgettable spiritual experience thanks to Niyyah Voyages's exceptional support.",
+        "Achraf est disponible, patient et très professionnel. Une expérience spirituelle inoubliable grâce à l'accompagnement exceptionnel de son équipe.",
+        "Achraf is available, patient and very professional. An unforgettable spiritual experience thanks to his team's exceptional support.",
       ),
       rating: 5,
       location: "Laval",
@@ -32,15 +41,6 @@ const Testimonials = () => {
       ),
       rating: 5,
       location: t("Québec", "Quebec City"),
-    },
-    {
-      name: "Omar T.",
-      text: t(
-        "Une équipe dévouée qui nous a accompagnés avec bienveillance. Tout était organisé dans les moindres détails. Merci pour cette expérience unique.",
-        "A dedicated team that supported us with kindness. Everything was organized down to the smallest detail. Thank you for this unique experience.",
-      ),
-      rating: 5,
-      location: "Gatineau",
     },
   ];
 
