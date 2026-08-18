@@ -125,7 +125,7 @@ const Omras = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-14 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            {t("Nos forfaits Omra 2026 / 2027", "Our Umrah packages 2026 / 2027")}
+            {t("Nos forfaits OMRAH 2026 / 2027", "Our UMRAH packages 2026 / 2027")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t(

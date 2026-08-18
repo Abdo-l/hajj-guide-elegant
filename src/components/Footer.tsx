@@ -16,7 +16,7 @@ const Footer = () => {
 
   const services = [
     t("Forfaits Hajj 2027", "Hajj 2027 packages"),
-    t("Forfaits Omra 2026-2027", "Umrah packages 2026-2027"),
+    t("Forfaits OMRAH 2026-2027", "UMRAH packages 2026-2027"),
     t("Assistance Nusuk", "Nusuk assistance"),
     t("Assistance visa", "Visa assistance"),
     t("Billets d'avion", "Flight tickets"),

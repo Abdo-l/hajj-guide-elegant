@@ -17,7 +17,7 @@ const Services = () => {
     },
     {
       icon: <Hotel className="text-gold" size={32} />,
-      title: t("Forfaits Omra", "Umrah packages"),
+      title: t("Forfaits OMRAH", "UMRAH packages"),
       description: t(
         "Découvrez nos offres Omra sur mesure avec différents niveaux de confort pour votre petit pèlerinage.",
         "Discover our tailor-made Umrah offers with different comfort levels for your lesser pilgrimage.",

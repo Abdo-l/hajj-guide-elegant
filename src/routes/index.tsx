@@ -34,11 +34,11 @@ function Index() {
   const { t } = useLang();
 
   const sections = [
-    { to: "/omras", title: t("Forfaits Omra", "Umrah packages"), text: t("Programmes 2026-2027 avec dates et tarifs.", "2026-2027 programs with dates and prices.") },
+    { to: "/omras", title: t("Forfaits OMRAH", "UMRAH packages"), text: t("Programmes 2026-2027 avec dates et tarifs.", "2026-2027 programs with dates and prices.") },
     { to: "/hajj-2027", title: t("Hajj 2027", "Hajj 2027"), text: t("Pré-inscription et accompagnement Nusuk.", "Pre-registration and Nusuk support.") },
     { to: "/sud", title: t("Sud tout inclus", "All-inclusive South"), text: t("Soleil et plage au départ de Montréal.", "Sun and beach from Montreal.") },
     { to: "/services", title: t("Nos services", "Our services"), text: t("Visa, Nusuk, transport, assurance et plus.", "Visa, Nusuk, transport, insurance and more.") },
-    { to: "/billetterie", title: t("Billetterie & assurance", "Tickets & insurance"), text: t("Réservez vos vols et votre couverture.", "Book your flights and coverage.") },
+    { to: "/billetterie", title: t("Billetterie & assurance voyages", "Tickets & travel insurance"), text: t("Réservez vos vols et votre assurance voyages.", "Book your flights and travel insurance.") },
     { to: "/location-voiture", title: t("Location de voiture au Maroc", "Car rental in Morocco"), text: t("Voiture livrée à l'aéroport, assurance incluse.", "Car delivered at the airport, insurance included.") },
     { to: "/souvenirs", title: t("Souvenirs", "Memories"), text: t("Photos et vidéos de nos groupes.", "Photos and videos of our groups.") },
   ];
