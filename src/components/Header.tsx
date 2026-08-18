@@ -10,10 +10,13 @@ import { site } from "@/lib/site";
 export const navLinks = (t: (fr: string, en: string) => string) => [
   { to: "/", label: t("Accueil", "Home") },
   { to: "/services", label: t("Services", "Services") },
-  { to: "/omras", label: t("Omras", "Umrah") },
+  { to: "/omras", label: t("OMRAH", "UMRAH") },
   { to: "/hajj-2027", label: t("Hajj 2027", "Hajj 2027") },
   { to: "/sud", label: t("Sud tout inclus", "All-inclusive South") },
-  { to: "/billetterie", label: t("Billetterie", "Tickets") },
+  {
+    to: "/billetterie",
+    label: t("Billetterie & assurance voyages", "Tickets & travel insurance"),
+  },
   { to: "/location-voiture", label: t("Location voiture", "Car rental") },
   { to: "/souvenirs", label: t("Souvenirs", "Memories") },
   { to: "/a-propos", label: t("À propos", "About") },

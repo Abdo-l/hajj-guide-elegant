@@ -17,7 +17,7 @@ const Services = () => {
     },
     {
       icon: <Hotel className="text-gold" size={32} />,
-      title: t("Forfaits Omra", "Umrah packages"),
+      title: t("Forfaits OMRAH", "UMRAH packages"),
       description: t(
         "Découvrez nos offres Omra sur mesure avec différents niveaux de confort pour votre petit pèlerinage.",
         "Discover our tailor-made Umrah offers with different comfort levels for your lesser pilgrimage.",
@@ -49,10 +49,10 @@ const Services = () => {
     },
     {
       icon: <Ticket className="text-gold" size={32} />,
-      title: t("Billetterie", "Flight tickets"),
+      title: t("Billetterie & assurance voyages", "Tickets & travel insurance"),
       description: t(
-        "Réservation de billets d'avion vers toutes les destinations aux meilleurs tarifs disponibles.",
-        "Flight bookings to every destination at the best available fares.",
+        "Réservation de billets d'avion vers toutes les destinations aux meilleurs tarifs, avec assurance voyages adaptée.",
+        "Flight bookings to every destination at the best fares, with travel insurance tailored to your trip.",
       ),
     },
     {

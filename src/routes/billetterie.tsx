@@ -5,16 +5,16 @@ import PaymentNote from "@/components/PaymentNote";
 export const Route = createFileRoute("/billetterie")({
   head: () => ({
     meta: [
-      { title: "Billetterie & assurance voyage — Niyyah Voyages" },
+      { title: "Billetterie & assurance voyages — Niyyah Voyages" },
       {
         name: "description",
         content:
-          "Réservez vos billets d'avion et votre assurance voyage avec Niyyah Voyages : demande rapide par WhatsApp, tarifs compétitifs et facilités de paiement.",
+          "Réservez vos billets d'avion et votre assurance voyages avec Niyyah Voyages : demande rapide par WhatsApp, tarifs compétitifs et facilités de paiement.",
       },
-      { property: "og:title", content: "Billetterie & assurance voyage — Niyyah Voyages" },
+      { property: "og:title", content: "Billetterie & assurance voyages — Niyyah Voyages" },
       {
         property: "og:description",
-        content: "Demandez vos billets d'avion et votre assurance voyage en quelques minutes.",
+        content: "Demandez vos billets d'avion et votre assurance voyages en quelques minutes.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
