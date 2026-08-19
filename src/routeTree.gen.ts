@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as BilletterieRouteImport } from './routes/billetterie'
+import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as Hajj2027RouteImport } from './routes/hajj-2027'
 import { Route as LocationVoitureRouteImport } from './routes/location-voiture'
@@ -33,6 +34,11 @@ const AProposRoute = AProposRouteImport.update({
 const BilletterieRoute = BilletterieRouteImport.update({
   id: '/billetterie',
   path: '/billetterie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
+  id: '/confidentialite',
+  path: '/confidentialite',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/billetterie': typeof BilletterieRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/hajj-2027': typeof Hajj2027Route
   '/location-voiture': typeof LocationVoitureRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/billetterie': typeof BilletterieRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/hajj-2027': typeof Hajj2027Route
   '/location-voiture': typeof LocationVoitureRoute
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/billetterie': typeof BilletterieRoute
+  '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
   '/hajj-2027': typeof Hajj2027Route
   '/location-voiture': typeof LocationVoitureRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/billetterie'
+    | '/confidentialite'
     | '/contact'
     | '/hajj-2027'
     | '/location-voiture'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/billetterie'
+    | '/confidentialite'
     | '/contact'
     | '/hajj-2027'
     | '/location-voiture'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/billetterie'
+    | '/confidentialite'
     | '/contact'
     | '/hajj-2027'
     | '/location-voiture'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   BilletterieRoute: typeof BilletterieRoute
+  ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
   Hajj2027Route: typeof Hajj2027Route
   LocationVoitureRoute: typeof LocationVoitureRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/billetterie'
       fullPath: '/billetterie'
       preLoaderRoute: typeof BilletterieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/confidentialite': {
+      id: '/confidentialite'
+      path: '/confidentialite'
+      fullPath: '/confidentialite'
+      preLoaderRoute: typeof ConfidentialiteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -239,6 +259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   BilletterieRoute: BilletterieRoute,
+  ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
   Hajj2027Route: Hajj2027Route,
   LocationVoitureRoute: LocationVoitureRoute,
