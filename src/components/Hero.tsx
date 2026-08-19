@@ -65,12 +65,7 @@ const Hero = () => {
                 <ArrowRight className="ml-2" size={20} />
               </Link>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-deep-brown"
-              asChild
-            >
+            <Button size="lg" variant="spiritual" className="text-lg px-8 py-6" asChild>
               <Link to="/contact">{t("Contactez-nous", "Contact us")}</Link>
             </Button>
           </div>
