@@ -14,6 +14,7 @@ import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as BilletterieRouteImport } from './routes/billetterie'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as Hajj2027RouteImport } from './routes/hajj-2027'
 import { Route as LocationVoitureRouteImport } from './routes/location-voiture'
 import { Route as OmrasRouteImport } from './routes/omras'
@@ -44,6 +45,11 @@ const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Hajj2027Route = Hajj2027RouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/billetterie': typeof BilletterieRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/hajj-2027': typeof Hajj2027Route
   '/location-voiture': typeof LocationVoitureRoute
   '/omras': typeof OmrasRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/billetterie': typeof BilletterieRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/hajj-2027': typeof Hajj2027Route
   '/location-voiture': typeof LocationVoitureRoute
   '/omras': typeof OmrasRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/billetterie': typeof BilletterieRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/hajj-2027': typeof Hajj2027Route
   '/location-voiture': typeof LocationVoitureRoute
   '/omras': typeof OmrasRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/billetterie'
     | '/confidentialite'
     | '/contact'
+    | '/cookies'
     | '/hajj-2027'
     | '/location-voiture'
     | '/omras'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/billetterie'
     | '/confidentialite'
     | '/contact'
+    | '/cookies'
     | '/hajj-2027'
     | '/location-voiture'
     | '/omras'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/billetterie'
     | '/confidentialite'
     | '/contact'
+    | '/cookies'
     | '/hajj-2027'
     | '/location-voiture'
     | '/omras'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   BilletterieRoute: typeof BilletterieRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
   Hajj2027Route: typeof Hajj2027Route
   LocationVoitureRoute: typeof LocationVoitureRoute
   OmrasRoute: typeof OmrasRoute
@@ -208,6 +221,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hajj-2027': {
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   BilletterieRoute: BilletterieRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
   Hajj2027Route: Hajj2027Route,
   LocationVoitureRoute: LocationVoitureRoute,
   OmrasRoute: OmrasRoute,
